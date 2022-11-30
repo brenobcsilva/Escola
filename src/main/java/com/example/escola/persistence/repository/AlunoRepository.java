@@ -1,4 +1,11 @@
 package com.example.escola.persistence.repository;
 
-public interface AlunoRepository {
+import com.example.escola.persistence.model.dto.AlunoDto;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.UUID;
+
+@Repository
+public interface AlunoRepository extends JpaRepository<AlunoDto, UUID> {
 }

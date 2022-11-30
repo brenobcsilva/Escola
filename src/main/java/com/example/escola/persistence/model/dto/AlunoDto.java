@@ -1,14 +1,23 @@
-package com.example.escola.persistence.model;
+package com.example.escola.persistence.model.dto;
+
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
-public class Aluno {
+@Entity
+public class AlunoDto {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private String nome;
-    private Professor professor;
+    @ManyToOne
+    private ProfessorDto professor;
 
-    public Aluno(String nome, Professor professor) {
+    public AlunoDto() {
+    }
+
+    public AlunoDto(String nome, ProfessorDto professor) {
         this.nome = nome;
         this.professor = professor;
     }
@@ -29,11 +38,11 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public Professor getProfessor() {
+    public ProfessorDto getProfessor() {
         return professor;
     }
 
-    public void setProfessor(Professor professor) {
+    public void setProfessor(ProfessorDto professor) {
         this.professor = professor;
     }
 
